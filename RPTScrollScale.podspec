@@ -16,18 +16,18 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RPTScrollScale"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of RPTScrollScale."
+  spec.version      = "0.1.0"
+  spec.summary      = "And interactive scale to retrieve uesr's height, weight, or any other value."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
+  # spec.description  = <<-DESC
+  #                 This is an interactive scale for retrieving user's data.
 
-  spec.homepage     = "http://EXAMPLE/RPTScrollScale"
+  spec.homepage     = "https://github.com/rptwsthi"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,8 +38,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
-  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
+  # spec.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -52,10 +52,10 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Arpit" => "Arpit@technologies33.com" }
+  spec.author             = { "Arpit" => "awasthi.arp@gmail.com" }
   # Or just: spec.author    = "Arpit"
-  # spec.authors            = { "Arpit" => "Arpit@technologies33.com" }
-  # spec.social_media_url   = "https://twitter.com/Arpit"
+  # spec.authors            = { "Arpit" => "awasthi.arp@gmail.com" }
+  # spec.social_media_url   = "https://twitter.com/rptwsthi"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/RPTScrollScale.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/rptwsthi/RPTScrollScale.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,8 +90,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  spec.source_files  = "RPTScrollScale/**/*.{swift}"
+  # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 

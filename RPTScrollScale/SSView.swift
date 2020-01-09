@@ -259,6 +259,7 @@ class ScalePointer : UIView {
     }
 }
 
+@available(iOS 8.2, *)
 open class RPTScaleView : UIView, UITableViewDelegate, UITableViewDataSource  {
     //MARK: IBInspectable
     @IBInspectable public var scale : String = "cm"
