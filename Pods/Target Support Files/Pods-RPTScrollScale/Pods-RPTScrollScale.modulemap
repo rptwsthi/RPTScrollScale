@@ -1,0 +1,6 @@
+framework module Pods_RPTScrollScale {
+  umbrella header "Pods-RPTScrollScale-umbrella.h"
+
+  export *
+  module * { export * }
+}
