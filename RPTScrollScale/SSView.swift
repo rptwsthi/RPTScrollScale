@@ -74,7 +74,6 @@ class Arrow: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-
         // Get size
         let size = self.layer.frame.width
 
@@ -92,8 +91,7 @@ class Arrow: UIView {
 
         // Mask to path
         shapeLayer.path = bezierPath.cgPath
-      //  shapeLayer.fillColor = arrowColor.cgColor
-       
+
         if #available(iOS 12.0, *) {
             self.layer.addSublayer (shapeLayer)
         } else {
@@ -110,10 +108,14 @@ class ScaleBarCell : UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(indicatorView)
         self.selectionStyle = .none
+        
+        //..
+        self.backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.backgroundColor = .clear
         
         //..
         self.contentView.addSubview(indicatorView)
