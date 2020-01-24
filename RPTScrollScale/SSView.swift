@@ -264,6 +264,8 @@ class ScalePointer : UIView {
 
 @available(iOS 8.2, *)
 open class RPTScaleView : UIView, UITableViewDelegate, UITableViewDataSource  {
+    var delegate : RPTScaleViewDelegate?
+    
     //MARK: IBInspectable
     @IBInspectable public var scale : String = "cm"
     @IBInspectable public var font : UIFont = UIFont.systemFont(ofSize: 14, weight: .ultraLight)
@@ -442,14 +444,33 @@ open class RPTScaleView : UIView, UITableViewDelegate, UITableViewDataSource  {
         targetContentOffset.pointee.y = round(targetContentOffset.pointee.y / ch) * ch
     }
  
+    var  selectedValue : Int = 0
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         var cp  = self.table.center
         cp.x = 20
         cp.y += scrollView.contentOffset.y
         print("cp = ", cp, "IndexPath: ", self.table.indexPathForRow(at: cp) ?? "Nohing", "scrollView.contentOffset.y = ", scrollView.contentOffset.y)
         if let ip = self.table.indexPathForRow(at: cp) {
-            self.pointer.valueLabel.text = "\(range.location + ip.section * interval + ip.row)"
+            self.selectedValue = range.location + ip.section * interval + ip.row
+            self.pointer.valueLabel.text = "\(self.selectedValue)"
         }
         //print("cp = ", cp, "IndexPath: ", self.table.indexPathForRow(at: cp) ?? "Nohing")
     }
+    
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var cp  = self.table.center
+        cp.x = 20
+        cp.y += scrollView.contentOffset.y
+        print("cp = ", cp, "IndexPath: ", self.table.indexPathForRow(at: cp) ?? "Nohing", "scrollView.contentOffset.y = ", scrollView.contentOffset.y)
+        if let ip = self.table.indexPathForRow(at: cp) {
+            self.selectedValue = range.location + ip.section * interval + ip.row
+            self.pointer.valueLabel.text = "\(self.selectedValue)"
+        }
+        self.delegate?.scale(view: self, scale: self.scale, value: self.selectedValue)
+    }
+}
+
+protocol RPTScaleViewDelegate {
+    @available(iOS 8.2, *)
+    func scale(view:RPTScaleView, scale:String, value:Int)
 }
